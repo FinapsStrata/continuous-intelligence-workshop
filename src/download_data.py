@@ -9,6 +9,8 @@ def load_data(path, key):
         os.makedirs(path)
 
     if not os.path.exists(os.path.join(path, key)):
+    # if (os.path.isfile(os.path.join(path,key))):
+        # print(os.path.exists(os.path.join(path,key)))
         url = "https://storage.googleapis.com/%s/%s" % (gcsBucket, key)
         urllib.request.urlretrieve(url, os.path.join(path, key))
 
@@ -23,7 +25,7 @@ def main():
         load_data(path='data/decision_tree', key='model.pkl')
     else:
         print("Loading input data...")
-        load_data(path='data/raw', key='store47-2016.csv')
+        load_data(path='data/raw/', key='store47-2016.csv')
     print("Finished downloading")
 
 
